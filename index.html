@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Wedding Zizah & Suami</title>
+
+    <!-- SEO Best Practices -->
+    <meta name="description"
+        content="Ucapan selamat atas pernikahan Zizah dan Suami. Merayakan momen indah dan berbagi kebahagiaan.">
+    <meta name="keywords" content="wedding, pernikahan, zizah, ucapan selamat">
+
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Design Tokens & Core Styles */
+        :root {
+            --primary: #C5A880;
+            --primary-dark: #A68B64;
+            --bg-color: #FDFBF7;
+            --text-dark: #3E3B35;
+            --text-light: #FFFFFF;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        h1,
+        h2,
+        h3,
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-weight: normal;
+        }
+
+        /* Loading / Opening Overlay */
+        #opening-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.2s ease, visibility 1.2s;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #opening-overlay h2 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .open-btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(197, 168, 128, 0.3);
+            margin-top: 20px;
+        }
+
+        .open-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(197, 168, 128, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('assets/1.jpeg') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: var(--text-light);
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 8vw, 7rem);
+            margin-bottom: 10px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+            transition-delay: 0.5s;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: var(--transition);
+            transition-delay: 0.8s;
+            font-weight: 300;
+        }
+
+        .hero.loaded h1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero.loaded p {
+            opacity: 1;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            opacity: 0.8;
+        }
+
+        /* Floating Music Button */
+        #music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        #music-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* General Section Styles */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Message Card */
+        .message-card {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin: 0 auto;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-card::before {
+            content: '\201C';
+            font-family: 'Great Vibes', cursive;
+            font-size: 8rem;
+            color: var(--primary);
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            opacity: 0.15;
+            z-index: -1;
+            line-height: 1;
+        }
+
+        .message-card p {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .message-signature {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-top: 30px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            aspect-ratio: 4/5;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Video Section */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--text-dark);
+            color: white;
+            position: relative;
+        }
+
+        footer h2 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .hearts {
+            color: #E74C3C;
+            display: inline-block;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        /* Keyframes */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Audio Element -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="assets/backsound.mp3#t=127" type="audio/mpeg">
+    </audio>
+
+    <!-- Opening Screen -->
+    <div id="opening-overlay">
+        <h2>Zizah & Suami</h2>
+        <p style="font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; color: #666;">
+            Ucapan Selamat Pernikahan</p>
+        <p style="margin-bottom: 30px; font-weight: 300; max-width: 600px; line-height: 1.8;">Maaf belum bisa hadir
+            secara langsung di hari bahagia ini,<br>namun doa terbaik selalu menyertai langkah kalian berdua.</p>
+        <button class="open-btn" onclick="openInvitation()">Buka Ucapan</button>
+    </div>
+
+    <!-- Music Toggle -->
+    <button id="music-btn" onclick="toggleMusic()" style="display: none;" title="Play/Pause Music">
+        <i class="fas fa-compact-disc fa-spin" id="music-icon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Zizah & Suami</h1>
+        <p>Your Wedding Celebration</p>
+        <i class="fas fa-chevron-down scroll-down"></i>
+    </section>
+
+    <!-- Wishes/Greeting Section -->
+    <section id="wishes">
+        <h2 class="section-title reveal">Selamat Berbahagia</h2>
+        <div class="message-card reveal">
+            <p><strong>Assalamu'alaikum Warahmatullahi Wabarakatuh</strong></p>
+            <p>Selamat menempuh hidup baru untuk Zizah dan Suami. Hari ini adalah awal dari babak baru dalam perjalanan
+                panjang kalian bersama.</p>
+            <p>Pernikahan bukan sekadar penyatuan dua insan, melainkan juga janji untuk saling melengkapi, saling
+                menguatkan di kala susah, dan saling bersyukur di kala senang. Jadilah pelita bagi satu sama lain.</p>
+            <p>Meski belum berkesempatan hadir untuk menyaksikan dan merayakan hari bahagia ini secara langsung, namun
+                doa yang tulus selalu menyertai setiap langkah kalian berdua. Semoga ikatan suci ini senantiasa
+                dilimpahi keberkahan, kedamaian, dan rezeki yang tak putus-putusnya dari Allah SWT.</p>
+            <p>Semoga keluarga yang kalian bangun kelak menjadi keluarga yang sakinah, mawaddah, wa rahmah—tempat pulang
+                yang paling menenangkan setelah lelahnya dunia. Selamat mengarungi samudera kehidupan bersama, semoga
+                kebahagiaan sejati selalu menyertai kalian hingga akhir hayat.</p>
+            <div class="message-signature">Doa Terbaik</div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery">
+        <h2 class="section-title reveal">Galeri Bahagia</h2>
+        <p class="reveal" style="margin-bottom: 20px; color: #666;">Momen-momen indah kalian yang tak terlupakan.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="assets/2.jpeg" alt="Potret Zizah & Suami 1" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="assets/3.jpeg" alt="Potret Zizah & Suami 2" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="assets/4.jpeg" alt="Potret Zizah & Suami 3" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section id="videos">
+        <h2 class="section-title reveal">Video Kenangan</h2>
+        <p class="reveal" style="margin-bottom: 20px; color: #666;">Kisah manis perjalanan cinta kalian dalam bingkai
+            video.</p>
+        <div class="video-container">
+            <div class="video-wrapper reveal">
+                <video autoplay muted loop playsinline preload="metadata" poster="assets/2.jpeg">
+                    <source src="assets/video-1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Gift / QR Code -->
+    <section id="gift">
+        <h2 class="section-title reveal">Tanda Kasih</h2>
+        <p class="reveal" style="margin-bottom: 20px; color: #666;">Bagi keluarga dan sahabat yang ingin memberikan
+            tanda kasih untuk Zizah & Suami.</p>
+        <div class="message-card reveal" style="max-width: 400px; text-align: center; padding: 40px 20px;">
+            <i class="fas fa-gift" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+            <h3
+                style="font-size: 1.5rem; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                Kado Digital</h3>
+            <img src="qr-code.png" alt="QR Code"
+                style="width: 100%; max-width: 250px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.9rem; margin-bottom: 0;">Silakan scan QR Code di atas.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>Terima Kasih</h2>
+        <p style="margin-bottom: 20px; color: #ccc;">Merayakan Cinta <span class="hearts">&hearts;</span> Zizah & Suami
+        </p>
+        <p style="font-size: 0.9rem; color: #888;">&copy; 2026. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+        const musicIcon = document.getElementById('music-icon');
+        const overlay = document.getElementById('opening-overlay');
+        const heroSection = document.querySelector('.hero');
+        let isPlaying = false;
+
+        // Open Invitation Flow
+        function openInvitation() {
+            // Hide overlay
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.visibility = 'hidden';
+                overlay.style.display = 'none';
+                // Trigger hero animation
+                heroSection.classList.add('loaded');
+                // Scroll to top just in case
+                window.scrollTo(0, 0);
+            }, 1000);
+
+            // Try to play music
+            music.volume = 0.6;
+            music.currentTime = 127; // Mulai dari menit 2:07 (127 detik)
+            music.play().then(() => {
+                isPlaying = true;
+                musicBtn.style.display = 'block';
+                musicBtn.style.opacity = '0';
+                // Fade in music button
+                setTimeout(() => {
+                    musicBtn.style.opacity = '1';
+                }, 1000);
+            }).catch(e => {
+                console.log("Auto-play was prevented by the browser:", e);
+                // Still show button but not spinning
+                musicBtn.style.display = 'block';
+                musicIcon.classList.remove('fa-spin');
+            });
+        }
+
+        // Toggle Music Functionality
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.classList.remove('fa-spin');
+                musicBtn.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                music.play();
+                musicIcon.classList.add('fa-spin');
+                musicBtn.style.boxShadow = '0 0 15px var(--primary)';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Scroll Reveal Animation Observer
+        const revealOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+
+</html>
